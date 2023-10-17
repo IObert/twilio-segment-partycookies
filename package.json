@@ -9,19 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "@segment/analytics-node": "^1.1.2",
+    "@segment/snippet": "^4.16.2",
+    "axios": "^1.5.1",
+    "encoding": "^0.1.13",
+    "maskdata": "^1.2.2",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "twilio": "^4.18.1"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
     "postcss": "latest",
     "tailwindcss": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest"
+    "typescript": "latest"
   }
 }

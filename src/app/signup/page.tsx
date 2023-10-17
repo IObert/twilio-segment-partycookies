@@ -1,117 +1,95 @@
-// import React, { useState } from "react";
+import { signupAction } from "./signupAction";
 
 const Page: React.FC = () => {
-    //   const [phoneNumber, setPhoneNumber] = useState("");
-  
-    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setPhoneNumber(e.target.value);
-    };
-  
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      // Call API or perform necessary action with phone number
-    };
-  
-    return (
-      <div className="flex items-center justify-center h-screen bg-gradient-to-r from-gray-200 to-white">
-        <div className="text-center max-w-screen-xl">
-          <h1 className="text-3xl mb-4 text-gray-700">
-            Get Delivery Status Updates
-          </h1>
-  
-          <form className="mb-8 flex  justify-center ">
-            <input
-              type="text"
-              id="phoneNumber"
-              className="w-64 py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              //   value={phoneNumber}
-              //   onChange={handlePhoneNumberChange}
-              placeholder="Enter your phone number"
-              required
-            />
-            <button
-              type="submit"
-              className="ml-4 py-2 px-4 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600"
-            >
-              Subscribe
-            </button>
-          </form>
-  
-          <p className="text-base text-gray-600 mb-4">
-            Discover what's happening with your shipment in real time. Type in
-            your phone number to receive instantaneous updates directly to your
-            device. Stay in the loop and never miss a crucial update regarding
-            your delivery.
+  return (
+    <div className="text-center max-w-screen-xl h-screen">
+      <h1 className="text-3xl mb-4 mt-10 text-gray-700">
+        Dough-lightful news awaits!
+      </h1>
+      <h2 className="text-xl mb-4 text-gray-700">
+        Don't miss a crumb-worthy update, join our cookie newsletter today!
+      </h2>
+
+      <form className="mb-10 flex justify-center" action={signupAction}>
+        <label htmlFor="phone" className="hidden">
+          Phone number
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          className="w-64 py-2 px-4 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          placeholder="+49 151 12341234"
+          // pattern="^(\+49|0)(1\d{2}|(15|16|17|18|19)\d)(\s?\d{3,4}){2}$"
+          required
+        ></input>
+        <div className="inline-flex ml-4  shadow-sm" role="group">
+          <button
+            type="submit"
+            name="sms-button"
+            className="py-2 px-4 bg-indigo-500 border border-gray-600  text-white rounded-l-lg  hover:bg-indigo-600"
+          >
+            Subscribe
+          </button>{" "}
+          <button
+            type="submit"
+            name="whatsapp-button"
+            className="py-2 px-4 bg-indigo-500  border border-gray-600  text-white rounded-r-lg hover:bg-indigo-600"
+          >
+            via WhatsApp
+          </button>
+        </div>
+      </form>
+      <div className="flex justify-between">
+        <div className="w-1/3 min-w text-left mb-4 p-8 rounded-lg">
+          <img
+            src="./icon-taste.svg"
+            alt="Fast delivery"
+            className="p-4 max-w-[200px]"
+          />
+          <h2 className="text-xl font-medium mb-1 text-gray-700">
+            Taste the Buzz
+          </h2>
+          <p className="text-base text-gray-500">
+            Discover the sensational, new cookie flavors and stay up-to-date on
+            the latest. Enter your number for instant updates on your device. Be
+            in the loop, never miss a crucial flavor update.
           </p>
-  
-          <p className="text-base text-gray-600 mb-4">
-            From the moment your order is placed, we're committed to ensuring a
-            smooth delivery process. Our state-of-the-art tracking system allows
-            you to monitor your package's journey right from the comfort of your
-            home.
+        </div>
+        <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
+          <img
+            src="./icon-insider.svg"
+            alt="Order tracking"
+            className="p-4 max-w-[200px]"
+          />
+          <h2 className="text-xl font-medium mb-1 text-gray-700">
+            Sweet Insider
+          </h2>
+          <p className="text-base text-gray-500">
+            Stay connected with our cookie newsletter and be the first to know
+            about limited edition releases and exclusive discounts. Join our
+            community of cookie enthusiasts and indulge your taste buds with
+            unique flavor combinations that will delight your senses.
           </p>
-  
-          <p className="text-base text-gray-600 mb-4">
-            Expect a seamless tracking experience, as our reliable delivery system
-            works tirelessly to get your order to your doorstep. We believe in
-            transparency, which is why we aim to give you every detail about your
-            delivery's progress. Don't miss a single update. Promptness and
-            accuracy are crucial to us, as they are to you. Rest easy knowing
-            we're on top of it, every step of the way.
+        </div>
+        <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
+          <img
+            src="./icon-unleashed.svg"
+            alt="Customer support"
+            className="p-4 max-w-[200px]"
+          />
+          <h2 className="text-xl font-medium mb-1 text-gray-700">
+            Cookies Unleashed
+          </h2>
+          <p className="text-base text-gray-500">
+            Don't miss out on the opportunity to be a part of the cookie
+            revolution - sign up now and elevate your cookie experience to a
+            whole new level.
           </p>
-  
-          <div className="flex justify-between">
-            <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
-              <img
-                src="./icon-fast-delivery.svg"
-                alt="Fast delivery"
-                className="p-4"
-              />
-              <h2 className="text-xl font-medium mb-1 text-gray-700">
-                {" "}
-                Fast Delivery
-              </h2>
-              <p className="text-base text-gray-500">
-                Get real-time updates on the status of your package. Know exactly
-                when it will arrive at your doorstep.
-              </p>
-            </div>
-            <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
-              <img
-                src="./icon-tracking.svg"
-                alt="Order tracking"
-                className="p-4"
-              />
-              <h2 className="text-xl font-medium mb-1 text-gray-700">
-                Order Tracking
-              </h2>
-              <p className="text-base text-gray-500">
-                Easily track your order from the moment it is shipped until it
-                reaches your hands. Stay updated with the latest information on
-                its location and estimated delivery time.
-              </p>
-            </div>
-            <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
-              <img
-                src="./icon-support.svg"
-                alt="Customer support"
-                className="p-4"
-              />
-              <h2 className="text-xl font-medium mb-1 text-gray-700">
-                24/7 Customer Support
-              </h2>
-              <p className="text-base text-gray-500">
-                Our dedicated customer support team is available around the clock
-                to assist you with any questions or concerns. We are here to
-                provide you with prompt and reliable support, ensuring your
-                satisfaction every step of the way.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
-    );
-  };
-  
-  export default Page;
-  
+    </div>
+  );
+};
+
+export default Page;
