@@ -1,7 +1,5 @@
-import { Analytics } from "@segment/analytics-node";
 import axios from "axios";
 import { cache } from "react";
-import { lookupSmsPumpingRisk } from "./twilio";
 
 export const revalidate = 3600; // revalidate the data at most every hour
 
@@ -15,7 +13,6 @@ async function fetchSegment(url: string) {
 }
 
 export const getProfiles = cache(async () => {
-  console.log("query segment");
   let profiles = [];
   try {
     const profilesResponse = await fetchSegment(
@@ -58,10 +55,5 @@ export const getProfiles = cache(async () => {
   } catch (e) {
     console.error(e);
   }
-  // await Promise.all(
-  //   profiles.map(async (profile: any) => {
-  //     profile.smsPumpingRisk = await lookupSmsPumpingRisk(profile.phone);
-  //   })
-  // );
   return profiles.filter((p) => p.phone);
 });

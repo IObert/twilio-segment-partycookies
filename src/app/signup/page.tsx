@@ -1,4 +1,5 @@
 import { signupAction } from "./signupAction";
+import Image from "next/image";
 
 const Page: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Page: React.FC = () => {
         Dough-lightful news awaits!
       </h1>
       <h2 className="text-xl mb-4 text-gray-700">
-        Don't miss a crumb-worthy update, join our cookie newsletter today!
+        Don&#39;t miss a crumb-worthy update, join our cookie newsletter today!
       </h2>
 
       <form className="mb-10 flex justify-center" action={signupAction}>
@@ -42,9 +43,11 @@ const Page: React.FC = () => {
       </form>
       <div className="flex justify-between">
         <div className="w-1/3 min-w text-left mb-4 p-8 rounded-lg">
-          <img
+          <Image
             src="./icon-taste.svg"
             alt="Fast delivery"
+            width={400}
+            height={400}
             className="p-4 max-w-[200px]"
           />
           <h2 className="text-xl font-medium mb-1 text-gray-700">
@@ -57,9 +60,11 @@ const Page: React.FC = () => {
           </p>
         </div>
         <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
-          <img
+          <Image
             src="./icon-insider.svg"
             alt="Order tracking"
+            width={400}
+            height={400}
             className="p-4 max-w-[200px]"
           />
           <h2 className="text-xl font-medium mb-1 text-gray-700">
@@ -73,16 +78,18 @@ const Page: React.FC = () => {
           </p>
         </div>
         <div className="w-1/3 text-left mb-4 p-8 rounded-lg">
-          <img
+          <Image
             src="./icon-unleashed.svg"
             alt="Customer support"
+            width={400}
+            height={400}
             className="p-4 max-w-[200px]"
           />
           <h2 className="text-xl font-medium mb-1 text-gray-700">
             Cookies Unleashed
           </h2>
           <p className="text-base text-gray-500">
-            Don't miss out on the opportunity to be a part of the cookie
+            Don&#39;t miss out on the opportunity to be a part of the cookie
             revolution - sign up now and elevate your cookie experience to a
             whole new level.
           </p>

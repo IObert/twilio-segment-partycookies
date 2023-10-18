@@ -9,9 +9,6 @@ const client = new Twilio(
 );
 
 export const lookupSmsPumpingRisk = cache(async (number: string) => {
-  console.log("fetch twilio");
-
-  
   const loopupRes = await client.lookups.v2
     .phoneNumbers(number.replace("whatsapp:", ""))
     .fetch({ fields: "sms_pumping_risk" });
@@ -19,8 +16,6 @@ export const lookupSmsPumpingRisk = cache(async (number: string) => {
 });
 
 export const getContentTemplates = cache(async () => {
-  console.log("fetch twilio");
-
   const contentsRes = await client.content.v1.fetch({
     method: "get",
     uri: "Content",

@@ -3,6 +3,9 @@ import { Analytics } from "@segment/analytics-node";
 import { cookies } from "next/headers";
 import { faker } from "@faker-js/faker";
 import { redirect } from 'next/navigation'
+import { lookupSmsPumpingRisk } from "@/utils/twilio";
+
+
 
 const analytics = new Analytics({
   writeKey: process.env.SEGMENT_SERVER_WRITE_KEY || "",
@@ -40,6 +43,7 @@ export async function signupAction(formData: FormData) {
     registeredAt: faker.date.past(),
     favoriteFlavor: flavors[Math.floor(Math.random() * flavors.length)],
     phone,
+    smsPumpingRisk: await lookupSmsPumpingRisk(phone)
   };
 
   analytics.identify({

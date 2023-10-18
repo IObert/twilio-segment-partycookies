@@ -13,14 +13,13 @@ type TableColumn = {
 };
 
 // Table component
-const ProfileTable: React.FC<{ profiles: any[] }> = async () => {
-  console.log("shows on vsc");
+const ProfileTable: React.FC<{ }> = async () => {
   const profiles = await getProfiles();
 
   const contentTemplates = await getContentTemplates();
 
   const columns: TableColumn[] = [
-    // { id: "avatar", label: "avatar", field: "avatar" },
+    { id: "avatar", label: "avatar", field: "avatar" },
     // { id: "username", label: "username", field: "username" },
     { id: "name", label: "name", field: "name" },
     // { id: "email", label: "email", field: "email" },
@@ -38,34 +37,23 @@ const ProfileTable: React.FC<{ profiles: any[] }> = async () => {
     <div className="h-screen w-10/12 mt-4">
       <h1 className="text-xl mb-4  text-gray-700">Message</h1>
 
-      <form className="flex " action={sendAction}>
+      <form className="flex mb-4" action={sendAction}>
         <select
           id="contentSid"
           name="contentSid"
-          className="w-full py-2 px-4 border-x mb-4  text-gray-700 border-gray-300 rounded-l-lg  focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="flex-1 py-2 px-4 border-x  text-gray-700 border-gray-300 rounded-l-lg  focus:outline-none focus:ring-2 focus:ring-indigo-500 "
         >
-          {/* <option defaultValue={"true"}>Custom Message</option> */}
           {contentTemplates?.map((contentTemplate: any) => (
-            <option value={contentTemplate.sid}>
+            <option key={contentTemplate.sid} value={contentTemplate.sid}>
               {contentTemplate.friendlyName}
             </option>
           ))}
         </select>
 
-        {/* <label htmlFor="message" className="hidden">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          className="w-full py-2 px-4 mb-4 border text-gray-700 border-gray-300 rounded-b-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          placeholder="Enter your message"
-        ></textarea> */}
-
         <button
           type="submit"
           name="send-messages"
-          className="py-2 px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600"
+          className="flex-initial w-32  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
         >
           Send
         </button>

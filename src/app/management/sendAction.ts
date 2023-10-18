@@ -1,34 +1,36 @@
 "use server";
 
-import { Twilio } from "twilio";
 import { redirect } from "next/navigation";
 import { getProfiles } from "@/utils/segment";
 import axios from "axios";
-
-type MessageObject = {
-  shortenUrls?: boolean;
-  from: string;
-  to: string;
-  contentSid?: string;
-  contentVariables?: string;
-  body?: string;
-};
+import { maskPhone } from "maskdata";
 
 export async function sendAction(formData: FormData) {
   const profiles = await getProfiles();
 
   const contentSid = formData.get("contentSid") as string;
 
-  const messages = profiles.map((profile) => {
-    return {
-      to: profile.phone,
-      contentVariables: {
-        0: profile.firstName,
-        1: profile.favoriteFlavor,
-        2: `https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
-      },
-    };
-  });
+  const messages = profiles
+    .filter((profile) => {
+      // if (profile.smsPumpingRisk < 75) {
+      if (profile.smsPumpingRisk === 32) {
+        console.log(
+          `Skipping ${maskPhone(profile.phone)} because of high risk of SMS pumping`
+        );
+        return false;
+      }
+      return true
+    })
+    .map((profile) => {
+      return {
+        to: profile.phone,
+        contentVariables: {
+          0: profile.firstName,
+          1: profile.favoriteFlavor,
+          2: `https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
+        },
+      };
+    });
 
   const res = await axios.post(
     "https://preview.messaging.twilio.com/v1/Messages.json",
