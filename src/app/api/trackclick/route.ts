@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Analytics } from "@segment/analytics-node";
 
-// import { Twilio } from "twilio";
-
+// Incoming payload
 // {
 //     "event_type": "click",
 //     "messaging_service_sid": "MGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",

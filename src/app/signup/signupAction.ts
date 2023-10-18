@@ -2,10 +2,8 @@
 import { Analytics } from "@segment/analytics-node";
 import { cookies } from "next/headers";
 import { faker } from "@faker-js/faker";
-import { redirect } from 'next/navigation'
-import { lookupSmsPumpingRisk } from "@/utils/twilio";
-
-
+import { redirect } from "next/navigation";
+import { lookupSmsPumpingRisk, sendMessage } from "@/utils/twilio";
 
 const analytics = new Analytics({
   writeKey: process.env.SEGMENT_SERVER_WRITE_KEY || "",
@@ -43,7 +41,7 @@ export async function signupAction(formData: FormData) {
     registeredAt: faker.date.past(),
     favoriteFlavor: flavors[Math.floor(Math.random() * flavors.length)],
     phone,
-    smsPumpingRisk: await lookupSmsPumpingRisk(phone)
+    smsPumpingRisk: await lookupSmsPumpingRisk(phone),
   };
 
   analytics.identify({
@@ -52,10 +50,16 @@ export async function signupAction(formData: FormData) {
     traits,
   });
 
+  sendMessage({
+    to: phone,
+    from: process.env.TWILIO_SENDER || "",
+    body: `Hi ${name.firstName},\nwe hope you enjoy this demo. Don't forget to use these promo codes ${process.env.PROMO} when you create a new account https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
+  });
+
   console.log(
     `Generated new user: ${JSON.stringify(traits)} \n\nWith cookie: ${
       cookieStore.get("ajs_anonymous_id")?.value
     }`
   );
-  redirect(`.`) // Navigate to home page
+  redirect(`.`); // Navigate to home page
 }

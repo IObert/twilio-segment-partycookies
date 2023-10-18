@@ -54,9 +54,7 @@ export async function sendAction(formData: FormData) {
   );
   console.log(res?.data.message_receipts);
 
-  // TODO: Add a success message
-  //   Hi {{0}}, great news. We got a new cookie with you're favorite flavor: *{{1}}*
-  // Check it out here {{2}}
+
   redirect(`.`); // Navigate to new route
 }
 
