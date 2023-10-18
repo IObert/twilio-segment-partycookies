@@ -15,11 +15,13 @@ export async function sendAction(formData: FormData) {
       // if (profile.smsPumpingRisk < 75) {
       if (profile.smsPumpingRisk === 32) {
         console.log(
-          `Skipping ${maskPhone(profile.phone)} because of high risk of SMS pumping`
+          `Skipping ${maskPhone(
+            profile.phone
+          )} because of high risk of SMS pumping`
         );
         return false;
       }
-      return true
+      return true;
     })
     .map((profile) => {
       return {
@@ -51,6 +53,10 @@ export async function sendAction(formData: FormData) {
     }
   );
   console.log(res?.data.message_receipts);
+
+  // TODO: Add a success message
+  //   Hi {{0}}, great news. We got a new cookie with you're favorite flavor: *{{1}}*
+  // Check it out here {{2}}
   redirect(`.`); // Navigate to new route
 }
 
