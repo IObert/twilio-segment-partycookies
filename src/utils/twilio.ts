@@ -17,7 +17,7 @@ export const sendMessage = async (
 ) => {
   return await client.messages.create({
     shortenUrls: true,
-    ...message
+    ...message,
   });
 };
 
@@ -28,7 +28,7 @@ export const lookupSmsPumpingRisk = cache(async (number: string) => {
   return loopupRes.smsPumpingRisk?.sms_pumping_risk_score;
 });
 
-export const getContentTemplates = cache(async () => {
+export const getContentTemplates = async () => {
   const contentsRes = await client.content.v1.fetch({
     method: "get",
     uri: "Content",
@@ -43,4 +43,4 @@ export const getContentTemplates = cache(async () => {
       };
     });
   return contents;
-});
+};
