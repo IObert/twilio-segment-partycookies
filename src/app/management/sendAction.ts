@@ -39,8 +39,7 @@ export async function sendAction(formData: FormData) {
     {
       messages,
       contentSid: contentSid,
-      from: process.env.TWILIO_SENDER || "",
-      // shortenUrls: true,
+      from: process.env.TWILIO_SENDER || ""
     },
     {
       headers: {
