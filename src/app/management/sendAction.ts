@@ -28,7 +28,7 @@ export async function sendAction(formData: FormData) {
         to: profile.phone,
         contentVariables: {
           0: profile.firstName,
-          1: profile.favoriteFlavor,
+          1: profile.randomFlavor,
           2: `https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
         },
       };
@@ -70,7 +70,7 @@ export async function sendAction(formData: FormData) {
 //       messageObject.contentSid = contentSid;
 //       messageObject.contentVariables = JSON.stringify({
 //         0: profile.firstName,
-//         1: profile.favoriteFlavor,
+//         1: profile.randomFlavor,
 //         2: `https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
 //       });
 //     } else {

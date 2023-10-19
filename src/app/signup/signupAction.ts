@@ -38,7 +38,7 @@ export async function signupAction(formData: FormData) {
     avatar: faker.image.avatar(),
     birthdate: faker.date.birthdate(),
     registeredAt: faker.date.past(),
-    favoriteFlavor: flavors[Math.floor(Math.random() * flavors.length)],
+    randomFlavor: flavors[Math.floor(Math.random() * flavors.length)],
     email: formData.get("email") || "",
     phone,
     smsPumpingRisk: await lookupSmsPumpingRisk(phone),
