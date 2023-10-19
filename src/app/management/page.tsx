@@ -38,9 +38,9 @@ const ProfileTable: React.FC<{}> = async () => {
         <button
           type="submit"
           name="send-messages"
-          className="flex-initial w-32  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
+          className="flex-initial w-64  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
         >
-          Send
+          Send To All Subscribers
         </button>
       </form>
       <h1 className="text-xl my-4 mt-10 text-gray-700">Contacts</h1>
@@ -57,7 +57,7 @@ const ProfileTable: React.FC<{}> = async () => {
               phone
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">
-              email
+              flavor
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">
               sms pumping risk
@@ -83,7 +83,7 @@ const ProfileTable: React.FC<{}> = async () => {
               </td>
               <td className="">{`${profile.firstName} ${profile.lastName}`}</td>
               <td className="">{maskPhone(profile.phone)}</td>
-              <td className="">{maskEmail2(profile.email)}</td>
+              <td className="">{profile.randomFlavor}</td>
               <td className="text-center">{profile.smsPumpingRisk}</td>
               <td className="text-center">
                 {profile.clickedLink ? "Yes" : "No"}
