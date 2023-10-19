@@ -17,6 +17,8 @@ export async function signupAction(formData: FormData) {
       ? `${formData.get("phone")}`
       : `whatsapp:${formData.get("phone")}`;
 
+  const email = formData.get("email") || "";
+
   const name = {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
@@ -35,20 +37,20 @@ export async function signupAction(formData: FormData) {
   const traits = {
     ...name,
     username: faker.internet.userName(name),
-    email: faker.internet.email(name),
     avatar: faker.image.avatar(),
     birthdate: faker.date.birthdate(),
     registeredAt: faker.date.past(),
     favoriteFlavor: flavors[Math.floor(Math.random() * flavors.length)],
+    email,
     phone,
     smsPumpingRisk: await lookupSmsPumpingRisk(phone),
   };
 
-  analytics.identify({
-    userId: phone,
-    anonymousId: cookieStore.get("ajs_anonymous_id")?.value,
-    traits,
-  });
+  // analytics.identify({
+  //   userId: phone,
+  //   anonymousId: cookieStore.get("ajs_anonymous_id")?.value,
+  //   traits,
+  // });
 
   sendMessage({
     to: phone,
