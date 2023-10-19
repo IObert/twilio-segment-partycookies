@@ -2,7 +2,9 @@ import React from "react";
 import { getProfiles } from "@/utils/segment";
 import { getContentTemplates } from "@/utils/twilio";
 import { sendAction } from "./sendAction";
-import { maskPhone, maskEmail2 } from "maskdata";
+import { maskPhone } from "maskdata";
+import { SubmitButton } from "./submit-button";
+
 import Image from "next/image";
 
 // Define the table column types
@@ -34,14 +36,7 @@ const ProfileTable: React.FC<{}> = async () => {
             </option>
           ))}
         </select>
-
-        <button
-          type="submit"
-          name="send-messages"
-          className="flex-initial w-64  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
-        >
-          Send To All Subscribers
-        </button>
+        <SubmitButton />
       </form>
       <h1 className="text-xl my-4 mt-10 text-gray-700">Contacts</h1>
       <table className="flex-1 table-auto divide-y divide-gray-300">

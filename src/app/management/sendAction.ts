@@ -1,6 +1,5 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import { getProfiles } from "@/utils/segment";
 import axios from "axios";
 import { maskPhone } from "maskdata";
@@ -51,29 +50,6 @@ export async function sendAction(formData: FormData) {
       },
     },
   );
-  console.log(res?.data.message_receipts);
-
-  redirect(`.`); // Navigate to new route
+  
+  return { title: `Sent ${res?.data.message_receipts.length} messages` };
 }
-
-// await Promise.all(
-//   profiles.map(async (profile) => {
-//     const messageObject: MessageObject = {
-//       // shortenUrls: true,
-//       from: process.env.TWILIO_SENDER || "",
-//       to: profile.phone,
-//     };
-
-//     if (contentSid?.startsWith("HX")) {
-//       messageObject.contentSid = contentSid;
-//       messageObject.contentVariables = JSON.stringify({
-//         0: profile.firstName,
-//         1: profile.randomFlavor,
-//         2: `https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
-//       });
-//     } else {
-//       messageObject.body = formData.get("message") as string;
-//     }
-//     return client.messages.create(messageObject);
-//   })
-// );
