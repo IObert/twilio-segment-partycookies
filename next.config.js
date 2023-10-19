@@ -1,11 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['localhost', 'avatars.githubusercontent.com', 'cloudflare-ipfs.com', '']
-    },
-    experimental: {
-        serverActions: true
-    }
-}
+  images: {
+    domains: [
+      "localhost",
+      "avatars.githubusercontent.com",
+      "cloudflare-ipfs.com",
+      "",
+    ],
+  },
+  experimental: {
+    serverActions: true,
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

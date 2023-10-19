@@ -16,7 +16,7 @@ export const getProfiles = cache(async () => {
   let profiles = [];
   try {
     const profilesResponse = await fetchSegment(
-      `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles`
+      `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles`,
     );
 
     if (!profilesResponse.data) {
@@ -27,7 +27,7 @@ export const getProfiles = cache(async () => {
       profilesResponse.data.map(async (profile: any) => {
         let traits = {};
         let res = await fetchSegment(
-          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/traits`
+          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/traits`,
         );
         traits = {
           ...traits,
@@ -41,16 +41,16 @@ export const getProfiles = cache(async () => {
           };
         }
         res = await fetchSegment(
-          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/events`
+          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/events`,
         );
         const clickTrackEvent = res.data?.findIndex(
-          (event: any) => event.event === "Click Tracked"
+          (event: any) => event.event === "Click Tracked",
         );
         return {
           clickedLink: clickTrackEvent > -1,
           ...traits,
         };
-      })
+      }),
     );
   } catch (e) {
     console.error(e);

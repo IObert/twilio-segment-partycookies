@@ -58,9 +58,9 @@ export async function signupAction(formData: FormData) {
   });
 
   console.log(
-    `Generated new user: ${JSON.stringify(traits)} \n\nWith cookie: ${
-      cookieStore.get("ajs_anonymous_id")?.value
-    }`
+    `Generated new user: ${JSON.stringify(
+      traits,
+    )} \n\nWith cookie: ${cookieStore.get("ajs_anonymous_id")?.value}`,
   );
   redirect(`.`); // Navigate to home page
 }

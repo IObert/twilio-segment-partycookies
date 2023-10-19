@@ -15,7 +15,10 @@ const Page: React.FC = () => {
         className="mb-10 flex flex-col justify-center max-w-lg mx-auto px-4"
         action={signupAction}
       >
-        <label htmlFor="email" className="text-l text-gray-700  border-gray-900 mt-2">
+        <label
+          htmlFor="email"
+          className="text-l text-gray-700  border-gray-900 mt-2"
+        >
           Email
         </label>
         <input

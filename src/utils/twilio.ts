@@ -9,11 +9,11 @@ const client = new Twilio(
   process.env.TWILIO_API_SECRET,
   {
     accountSid: process.env.TWILIO_ACCOUNT_SID,
-  }
+  },
 );
 
 export const sendMessage = async (
-  message: MessageListInstanceCreateOptions
+  message: MessageListInstanceCreateOptions,
 ) => {
   return await client.messages.create({
     shortenUrls: true,

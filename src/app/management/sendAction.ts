@@ -16,8 +16,8 @@ export async function sendAction(formData: FormData) {
       if (profile.smsPumpingRisk === 32) {
         console.log(
           `Skipping ${maskPhone(
-            profile.phone
-          )} because of high risk of SMS pumping`
+            profile.phone,
+          )} because of high risk of SMS pumping`,
         );
         return false;
       }
@@ -39,7 +39,7 @@ export async function sendAction(formData: FormData) {
     {
       messages,
       contentSid: contentSid,
-      from: process.env.TWILIO_SENDER || ""
+      from: process.env.TWILIO_SENDER || "",
     },
     {
       headers: {
@@ -49,10 +49,9 @@ export async function sendAction(formData: FormData) {
         username: process.env.TWILIO_API_KEY || "",
         password: process.env.TWILIO_API_SECRET || "",
       },
-    }
+    },
   );
   console.log(res?.data.message_receipts);
-
 
   redirect(`.`); // Navigate to new route
 }

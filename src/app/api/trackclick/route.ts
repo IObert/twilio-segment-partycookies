@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   });
   // try {
   analytics.track({
-    userId:  data.to,
+    userId: data.to,
     event: "Click Tracked",
     properties: {
       clickTime: data.click_time,
