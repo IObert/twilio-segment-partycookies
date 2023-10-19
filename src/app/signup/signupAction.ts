@@ -46,11 +46,11 @@ export async function signupAction(formData: FormData) {
     smsPumpingRisk: await lookupSmsPumpingRisk(phone),
   };
 
-  // analytics.identify({
-  //   userId: phone,
-  //   anonymousId: cookieStore.get("ajs_anonymous_id")?.value,
-  //   traits,
-  // });
+  analytics.identify({
+    userId: phone,
+    anonymousId: cookieStore.get("ajs_anonymous_id")?.value,
+    traits,
+  });
 
   sendMessage({
     to: phone,
