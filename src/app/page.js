@@ -2,13 +2,12 @@
 import TryNow from "./components/tryNow";
 import Product from "./components/product";
 import Footer from "./components/footer";
-import { Box, Heading, Grid, Stack } from "@twilio-paste/core";
+import { Box, Heading, Stack } from "@twilio-paste/core";
 import COOKIES from "./components/cookies";
-import { analytics } from "./analytics";
 import { Theme } from "@twilio-paste/core/theme";
+import Analytics from "./components/analytics";
 
 export default function Home() {
-  analytics.page();
   return (
     <>
       <Theme.Provider theme="default">
@@ -45,6 +44,7 @@ export default function Home() {
           </Box>
         </Box>
         <Footer pagination />
+        <Analytics />
       </Theme.Provider>
     </>
   );

@@ -1,4 +1,4 @@
-import { Button, Grid, Column, Box } from "@twilio-paste/core";
+import { Grid, Column, Box } from "@twilio-paste/core";
 import LoginModal from "./loginModal";
 export default function Rewards() {
   return (

@@ -12,15 +12,10 @@ import { Theme } from "@twilio-paste/core/theme";
 
 import onLogin from "./onLogin";
 import { useRouter } from "next/navigation";
-import { analytics } from "../analytics";
 
 export default function LoginModal() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [mfaModal, setMFAModal] = React.useState({
-    visible: false,
-    channel: "sms",
-  });
-  const [msg, setMsg] = React.useState(null);
+
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => setIsOpen(false);
   const modalHeadingID = useUID();
@@ -57,7 +52,7 @@ export default function LoginModal() {
             </ModalHeading>
           </ModalHeader>
           <ModalBody>
-            <LoginForm onSubmitHandler={handleSubmit} msg={msg} />
+            <LoginForm onSubmitHandler={handleSubmit} />
           </ModalBody>
         </Modal>
       </Theme.Provider>

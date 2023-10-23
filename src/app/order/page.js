@@ -1,14 +1,11 @@
 "use client";
-import NavBar from "../components/navBar";
-import TryNow from "../components/tryNow";
 import Product from "../components/product";
 import Footer from "../components/footer";
 import { Box, Heading, Stack } from "@twilio-paste/core";
 import COOKIES from "../components/cookies";
-import { analytics } from "../analytics";
+import Analytics from "../components/analytics";
 
 export default function Home() {
-  analytics.page();
   return (
     <>
       <Box className="store">
@@ -42,6 +39,7 @@ export default function Home() {
           </Stack>
         </Box>
       </Box>
+      <Analytics />
       <Footer pagination />
     </>
   );

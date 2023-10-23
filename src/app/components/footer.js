@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Box, Stack, Button } from "@twilio-paste/core";
@@ -16,13 +17,18 @@ export default function Footer({ pagination }) {
       <div className="pagination">
         {pagination && (
           <center>
-            <Image src="/pagination.png" alt="Pagination" />
+            <Image
+              src="/pagination.png"
+              alt="Pagination"
+              height="104"
+              width="156"
+            />
           </center>
         )}
       </div>
       <div className="footer">
         <center>
-          <Image src="/footer.png" alt="footer" />
+          <Image src="/footer.png" alt="footer" width="1218" height="375" />
         </center>
       </div>
       <Box className="cookie-settings-button">

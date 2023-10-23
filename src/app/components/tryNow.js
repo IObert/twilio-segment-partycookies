@@ -16,7 +16,13 @@ export default function TryNow() {
           </Box>
         </Column>
         <Column span={4}>
-          <Image className="try-now-image hero" src="frontpage.png" />
+          <Image
+            className="try-now-image hero"
+            src="/frontpage.png"
+            alt="cookies"
+            height="606"
+            width="637"
+          />
         </Column>
       </Grid>
       <Grid className="mobile-hero">
@@ -25,6 +31,8 @@ export default function TryNow() {
             className="mobile-hero"
             src="/logo.png"
             alt="Party Cookies Logo"
+            height="88"
+            width="202"
           />
         </Column>
       </Grid>

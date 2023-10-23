@@ -46,6 +46,8 @@ export default function NavBar() {
                 className="logo"
                 src="/logo.png"
                 alt="Party Cookies Logo"
+                height="90"
+                width="200"
               />
             </Link>
 

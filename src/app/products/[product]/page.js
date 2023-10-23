@@ -4,14 +4,13 @@ import { useState } from "react";
 import { Button, Alert, Column, Grid, Box } from "@twilio-paste/core";
 import COOKIES from "../../components/cookies";
 import { Heading } from "@twilio-paste/core/heading";
-import { analytics } from "../../analytics";
 import { Theme } from "@twilio-paste/core/theme";
 import Image from "next/image";
+import Analytics from "../../components/analytics";
 
 export default function Product({ params }) {
   const [notifications, setNotifications] = useState([]);
   const product = COOKIES[params.product];
-  analytics.page();
 
   function orderCookie() {
     console.log("cookie ordered");
@@ -35,7 +34,12 @@ export default function Product({ params }) {
       <Grid>
         <Column span={4} offset={2} margin="auto">
           <Box margin="auto">
-            <Image src={product.image} alt={product.name} />
+            <Image
+              src={product.image}
+              alt={product.name}
+              height="424"
+              width="257"
+            />
           </Box>
         </Column>
         <Column span={4}>
@@ -61,6 +65,7 @@ export default function Product({ params }) {
           <p>{product.description}</p>
         </center>
       </Box>
+      <Analytics />
     </Theme.Provider>
   );
 }
