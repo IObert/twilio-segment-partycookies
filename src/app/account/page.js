@@ -7,20 +7,21 @@ import { useEffect, useState } from "react";
 
 export default function Account() {
   let storageUser = {};
-  if (typeof window !== "undefined") {
-    storageUser = JSON.parse(localStorage.getItem("user"));
-  }
   const [user, setUser] = useState(storageUser);
 
   useEffect(() => {
-    fetch("/api/faveCookie", {
-      method: "POST",
-      body: JSON.stringify({ email: user.email }),
-    })
-      .then((res) => res.json())
-      .then(({ faveCookie }) => {
-        setUser({ ...user, faveCookie });
-      });
+    if (typeof window !== "undefined") {
+      const userInStorage = JSON.parse(localStorage.getItem("user"));
+
+      fetch("/api/faveCookie", {
+        method: "POST",
+        body: JSON.stringify({ email: userInStorage.email }),
+      })
+        .then((res) => res.json())
+        .then(({ faveCookie }) => {
+          setUser({ ...userInStorage, faveCookie });
+        });
+    }
   }, []);
 
   return (
