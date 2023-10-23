@@ -50,6 +50,6 @@ export async function sendAction(formData: FormData) {
       },
     },
   );
-  
+
   return { title: `Sent ${res?.data.message_receipts.length} messages` };
 }

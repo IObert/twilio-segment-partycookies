@@ -10,7 +10,7 @@ export function SubmitButton() {
       type="submit"
       aria-disabled={pending}
       name="send-messages"
-      className="flex-initial flex items-center place-content-between   w-64  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
+      className="flex-initial flex items-center place-content-between w-64  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
     >
       {pending ? (
         <>
