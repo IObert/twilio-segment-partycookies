@@ -13,14 +13,14 @@ export async function signupAction(formData: FormData) {
   const cookieStore = cookies();
 
   const phone =
-    formData.get("sms-button") === ""
-      ? `${formData.get("phone")}`
-      : `whatsapp:${formData.get("phone")}`;
-
-  const name = {
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-  };
+      formData.get("sms-button") === ""
+        ? `${formData.get("phone")}`
+        : `whatsapp:${formData.get("phone")}`,
+    email = `${formData.get("email")}`,
+    name = {
+      firstName: faker.person.firstName(),
+      lastName: faker.person.lastName(),
+    };
 
   const flavors = [
     "chocolate",
@@ -39,13 +39,14 @@ export async function signupAction(formData: FormData) {
     birthdate: faker.date.birthdate(),
     registeredAt: faker.date.past(),
     randomFlavor: flavors[Math.floor(Math.random() * flavors.length)],
-    email: formData.get("email") || "",
+    email,
     phone,
     smsPumpingRisk: await lookupSmsPumpingRisk(phone),
   };
 
+  
   analytics.identify({
-    userId: phone,
+    userId: email,
     anonymousId: cookieStore.get("ajs_anonymous_id")?.value,
     // @ts-ignore
     traits,
@@ -57,10 +58,5 @@ export async function signupAction(formData: FormData) {
     body: `Hi ${name.firstName},\nwe hope you enjoy this demo. Don't forget to use these promo codes ${process.env.PROMO} when you create a new account https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
   });
 
-  console.log(
-    `Generated new user: ${JSON.stringify(
-      traits,
-    )} \n\nWith cookie: ${cookieStore.get("ajs_anonymous_id")?.value}`,
-  );
   redirect(`.`); // Navigate to home page
 }

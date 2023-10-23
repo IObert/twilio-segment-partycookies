@@ -4,12 +4,19 @@ import { cache } from "react";
 export const revalidate = 3600; // revalidate the data at most every hour
 
 async function fetchSegment(url: string) {
-  const res = await axios.get(url, {
-    headers: {
-      Authorization: `Basic ${btoa(process.env.SEGMENT_TOKEN + ":")}`,
-    },
-  });
-  return res.data;
+  try {
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: `Basic ${btoa(process.env.SEGMENT_TOKEN + ":")}`,
+      },
+    });
+    return res.data;
+  } catch (e: any) {
+    if (e.response.status === 404) {
+      return {};
+    }
+    throw e;
+  }
 }
 
 export const getProfiles = cache(async () => {
@@ -33,7 +40,7 @@ export const getProfiles = cache(async () => {
           ...traits,
           ...res.traits,
         };
-        while (res.cursor.has_more) {
+        while (res?.cursor?.has_more) {
           res = await fetchSegment(res.cursor.url);
           traits = {
             ...traits,
@@ -43,7 +50,7 @@ export const getProfiles = cache(async () => {
         res = await fetchSegment(
           `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/events`,
         );
-        const clickTrackEvent = res.data?.findIndex(
+        const clickTrackEvent = res?.data?.findIndex(
           (event: any) => event.event === "Click Tracked",
         );
         return {
