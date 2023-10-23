@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Stack } from "@twilio-paste/core/stack";
 import { Box } from "@twilio-paste/core/box";
 import { Theme } from "@twilio-paste/core/theme";
+import Image from "next/image";
 
 export default function NavBar() {
   let user = null;
@@ -41,7 +42,11 @@ export default function NavBar() {
             style={{ width: "100%" }}
           >
             <Link href="/">
-              <img className="logo" src="/logo.png" alt="Party Cookies Logo" />
+              <Image
+                className="logo"
+                src="/logo.png"
+                alt="Party Cookies Logo"
+              />
             </Link>
 
             <Link className={pathName == "/" ? "active" : ""} href="/">

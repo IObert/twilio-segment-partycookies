@@ -1,4 +1,5 @@
 import { Button, Column, Grid, Box } from "@twilio-paste/core";
+import Image from "next/image";
 
 export default function TryNow() {
   return (
@@ -15,12 +16,12 @@ export default function TryNow() {
           </Box>
         </Column>
         <Column span={4}>
-          <img className="try-now-image hero" src="frontpage.png" />
+          <Image className="try-now-image hero" src="frontpage.png" />
         </Column>
       </Grid>
       <Grid className="mobile-hero">
         <Column span={2} offset={3}>
-          <img
+          <Image
             className="mobile-hero"
             src="/logo.png"
             alt="Party Cookies Logo"

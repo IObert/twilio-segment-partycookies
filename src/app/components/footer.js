@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Box, Stack, Button } from "@twilio-paste/core";
 import { Theme } from "@twilio-paste/core/theme";
 import dynamic from "next/dynamic";
@@ -15,13 +16,13 @@ export default function Footer({ pagination }) {
       <div className="pagination">
         {pagination && (
           <center>
-            <img src="/pagination.png" alt="Pagination" />
+            <Image src="/pagination.png" alt="Pagination" />
           </center>
         )}
       </div>
       <div className="footer">
         <center>
-          <img src="/footer.png" alt="footer" />
+          <Image src="/footer.png" alt="footer" />
         </center>
       </div>
       <Box className="cookie-settings-button">

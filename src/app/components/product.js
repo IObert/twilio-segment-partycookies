@@ -1,5 +1,6 @@
 import { Box, Card, Stack } from "@twilio-paste/core";
 import Link from "next/link";
+import Image from "next/image";
 import { Theme } from "@twilio-paste/core/theme";
 export default function Product({ product, discount }) {
   return (
@@ -8,7 +9,7 @@ export default function Product({ product, discount }) {
         <Stack orientation="vertical" element="PRODUCT">
           <p>
             <Link href={"/products/" + product.id}>
-              <img src={product.image} alt={product.name} />
+              <Image src={product.image} alt={product.name} />
             </Link>
           </p>
           <div className="view-product">
