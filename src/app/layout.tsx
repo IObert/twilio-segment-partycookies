@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import * as snippet from "@segment/snippet";
+import dynamic from "next/dynamic";
+const NavBar = dynamic(() => import("./components/navBar"), { ssr: false });
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <NavBar />
         <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b  from-gray-300 to-white overflow-scroll">
           {children}
         </div>
