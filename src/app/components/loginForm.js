@@ -11,7 +11,7 @@ import "intl-tel-input/build/css/intlTelInput.css";
 import intlTelInput from "intl-tel-input";
 import { useEffect } from "react";
 
-export default function loginForm(props) {
+export default function LoginForm(props) {
   let iti = {
     getNumber: function () {
       return "";

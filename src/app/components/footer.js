@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Stack, Button } from "@twilio-paste/core";
 import CookieDialog from "./cookieDialog";
+import { Theme } from "@twilio-paste/core/theme";
 
 export default function Footer({ pagination }) {
   const [cookieDialogOpen, setCookieDialogOpen] = React.useState();
@@ -9,7 +10,7 @@ export default function Footer({ pagination }) {
   const closeCookieDialog = () => setCookieDialogOpen(false);
 
   return (
-    <>
+    <Theme.Provider theme="default">
       <div className="pagination">
         {pagination && (
           <center>
@@ -28,14 +29,14 @@ export default function Footer({ pagination }) {
           orientation="horizontal"
           style={{ width: "100%" }}
         >
-          {/*<p>Copyright © 2022 Twilio, Inc.</p>*/}
+          <p>Copyright © 2022 Twilio, Inc.</p>
           <p>&nbsp;</p>
           <Button variant="link" onClick={openCookieDialog}>
             Cookie Settings
           </Button>
         </Stack>
       </Box>
-      {/* <CookieDialog open={cookieDialogOpen} onClose={closeCookieDialog} /> */}
-    </>
+      <CookieDialog open={cookieDialogOpen} onClose={closeCookieDialog} />
+    </Theme.Provider>
   );
 }

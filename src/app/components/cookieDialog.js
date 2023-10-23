@@ -13,13 +13,13 @@ import { Checkbox } from "@twilio-paste/core/checkbox";
 export default function CookieDialog({ open, onClose }) {
   const cookieOptions = JSON.parse(
     localStorage.getItem("cookieOptions") ||
-      '{"performance":false,"social":false}'
+      '{"performance":false,"social":false}',
   );
   const [detailsOpen, setDetailsOpen] = React.useState(
-    localStorage.getItem("cookieConsent") === "custom"
+    localStorage.getItem("cookieConsent") === "custom",
   );
   const [performance, setPerformance] = React.useState(
-    cookieOptions.performance
+    cookieOptions.performance,
   );
   const [social, setSocial] = React.useState(cookieOptions.social);
   const forceOpen =
@@ -29,7 +29,7 @@ export default function CookieDialog({ open, onClose }) {
     localStorage.setItem("cookieConsent", "accepted");
     localStorage.setItem(
       "cookieOptions",
-      JSON.stringify({ performance: true, social: true })
+      JSON.stringify({ performance: true, social: true }),
     );
     onClose();
   };
@@ -42,7 +42,7 @@ export default function CookieDialog({ open, onClose }) {
     localStorage.setItem("cookieConsent", "custom");
     localStorage.setItem(
       "cookieOptions",
-      JSON.stringify({ performance, social })
+      JSON.stringify({ performance, social }),
     );
     onClose();
   };
@@ -51,7 +51,7 @@ export default function CookieDialog({ open, onClose }) {
     setPerformance(!performance);
     localStorage.setItem(
       "cookieOptions",
-      JSON.stringify({ performance: !performance, social })
+      JSON.stringify({ performance: !performance, social }),
     );
   };
 
@@ -59,7 +59,7 @@ export default function CookieDialog({ open, onClose }) {
     setSocial(!social);
     localStorage.setItem(
       "cookieOptions",
-      JSON.stringify({ performance, social: !social })
+      JSON.stringify({ performance, social: !social }),
     );
   };
 
@@ -82,10 +82,11 @@ export default function CookieDialog({ open, onClose }) {
             and personalised ads.
           </p>
           <p>
-            To get more information or amend your preferences, click the ‘More
-            Information’ button or visit 'Cookie Settings' at the bottom of the
-            website. To get more information about these cookies and the
-            processing of your personal data, check our Privacy & Cookie Policy.
+            To get more information or amend your preferences, click the
+            &apos;More Information&apos; button or visit &apos;Cookie
+            Settings&apos; at the bottom of the website. To get more information
+            about these cookies and the processing of your personal data, check
+            our Privacy & Cookie Policy.
           </p>
           <p>
             Do you accept these cookies and the processing of personal data

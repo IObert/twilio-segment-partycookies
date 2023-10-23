@@ -8,8 +8,8 @@ export default function TryNow() {
           <Box className="try-now-text hero">
             <h1>Love at first bite</h1>
             <p>
-              "Whether it is your first party or your third party, these cookies
-              are for you!"
+              &quot;Whether it is your first party or your third party, these
+              cookies are for you!&quot;
             </p>
             <Button variant="primary">TRY NOW</Button>
           </Box>

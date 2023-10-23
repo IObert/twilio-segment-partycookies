@@ -12,6 +12,7 @@ export default function NavBar() {
     const storage = localStorage.getItem("user");
     user = JSON.parse(storage);
   }
+  let pathName = usePathname();
 
   return (
     <>
@@ -23,7 +24,7 @@ export default function NavBar() {
                 <td>Call Us: +8800701-800300</td>
                 <td style={{ textAlign: "center" }}>
                   Take 30% off when you spend $99 or more with code:
-                  "HappyCookie". <u>More details</u>
+                  &quot;HappyCookie&quot;. <u>More details</u>
                 </td>
                 <td style={{ textAlign: "right" }}>
                   Facebook &nbsp;&nbsp; Twitter &nbsp;&nbsp; Instagram
@@ -43,12 +44,12 @@ export default function NavBar() {
               <img className="logo" src="/logo.png" alt="Party Cookies Logo" />
             </Link>
 
-            <Link className={usePathname() == "/" ? "active" : ""} href="/">
+            <Link className={pathName == "/" ? "active" : ""} href="/">
               Home
             </Link>
             {!user && (
               <Link
-                className={usePathname() == "/rewards" ? "active" : ""}
+                className={pathName == "/rewards" ? "active" : ""}
                 href="/rewards"
               >
                 Rewards
@@ -56,14 +57,14 @@ export default function NavBar() {
             )}
             {user && (
               <Link
-                className={usePathname() == "/account" ? "active" : ""}
+                className={pathName == "/account" ? "active" : ""}
                 href="/account"
               >
                 My Favourites
               </Link>
             )}
             <Link
-              className={usePathname() == "/order" ? "active" : ""}
+              className={pathName == "/order" ? "active" : ""}
               href="/order"
             >
               Order Online
