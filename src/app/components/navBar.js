@@ -8,7 +8,7 @@ import { Theme } from "@twilio-paste/core/theme";
 export default function NavBar() {
   let user = null;
 
-  if (typeof window !== "undefined") {
+  if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
     const storage = localStorage.getItem("user");
     user = JSON.parse(storage);
   }

@@ -40,7 +40,6 @@ export default function RootLayout({
         <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b  from-gray-300 to-white overflow-scroll">
           {children}
         </div>
-        
       </body>
 
       <Script

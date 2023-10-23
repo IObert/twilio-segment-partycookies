@@ -10,7 +10,7 @@ export default function Account() {
   const [user, setUser] = useState(storageUser);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
       const userInStorage = JSON.parse(localStorage.getItem("user"));
 
       fetch("/api/faveCookie", {
@@ -57,5 +57,3 @@ export default function Account() {
     </>
   );
 }
-
-const getFaveCookie = async (user) => {};

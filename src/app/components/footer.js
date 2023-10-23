@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Stack, Button } from "@twilio-paste/core";
-import CookieDialog from "./cookieDialog";
 import { Theme } from "@twilio-paste/core/theme";
+import dynamic from "next/dynamic";
+const CookieDialog = dynamic(() => import("./cookieDialog"), { ssr: false });
 
 export default function Footer({ pagination }) {
   const [cookieDialogOpen, setCookieDialogOpen] = React.useState();
