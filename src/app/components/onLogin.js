@@ -7,7 +7,7 @@ export default function onLogin({ email, phone }) {
     phone,
     signedUpForRewards: true,
   };
-  analytics.identify({
+  analytics.identify(email, {
     email,
     traits,
   });
