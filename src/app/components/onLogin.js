@@ -1,5 +1,4 @@
 import { analytics } from "../../utils/analytics";
-import { faker } from "@faker-js/faker";
 //Only runs on successful login
 
 export default function onLogin({ email, phone }) {

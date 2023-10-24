@@ -10,6 +10,7 @@ import Analytics from "./components/analytics";
 export default function Home() {
   return (
     <>
+      <Analytics />
       <Theme.Provider theme="default">
         <TryNow />
         <Box className="store">
@@ -44,7 +45,6 @@ export default function Home() {
           </Box>
         </Box>
         <Footer pagination />
-        <Analytics />
       </Theme.Provider>
     </>
   );

@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { analytics } from "../../utils/analytics";
@@ -17,5 +16,6 @@ export default function Analytics() {
 
 export function track(event, details) {
   analytics.track(event, details);
-  console.log(event);
+
+  return null;
 }
