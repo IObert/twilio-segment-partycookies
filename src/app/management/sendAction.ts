@@ -11,8 +11,7 @@ export async function sendAction(formData: FormData) {
 
   const messages = profiles
     .filter((profile) => {
-      // if (profile.smsPumpingRisk < 75) {
-      if (profile.smsPumpingRisk === 32) {
+      if (profile.smsPumpingRisk > 75) {
         console.log(
           `Skipping ${maskPhone(
             profile.phone,
