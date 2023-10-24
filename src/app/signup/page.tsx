@@ -1,4 +1,5 @@
 import { signupAction } from "./signupAction";
+import { SignUpButtons } from "./signup-buttons";
 import Image from "next/image";
 
 const Page: React.FC = () => {
@@ -42,22 +43,7 @@ const Page: React.FC = () => {
           pattern="^(\+\d{1,3}\s?)?(\()?\d{1,4}(\))?\s?(-|\s)?\d{1,4}\s?(-|\s)?\d{1,9}$"
           required
         ></input>
-        <div className="inline-flex mt-4 " role="group">
-          <button
-            type="submit"
-            name="sms-button"
-            className="w-1/2 py-2 px-4 bg-violet-700 border border-gray-900  text-white rounded-l-lg  hover:bg-violet-900"
-          >
-            Subscribe
-          </button>{" "}
-          <button
-            type="submit"
-            name="whatsapp-button"
-            className="w-1/2 py-2 px-4 bg-violet-700  border border-gray-900  text-white rounded-r-lg hover:bg-violet-900"
-          >
-            via WhatsApp
-          </button>
-        </div>
+        <SignUpButtons />
       </form>
       <div className="flex-1 flex flex-wrap justify-between">
         <div className="flex-1 text-left my-auto p-8 ">
