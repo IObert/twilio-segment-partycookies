@@ -23,7 +23,7 @@ const Page: React.FC = () => {
           Email
         </label>
         <input
-          type="tel"
+          type="email"
           id="email"
           name="email"
           className="w-full py-2 px-4 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-700"
