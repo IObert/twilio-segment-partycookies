@@ -19,7 +19,7 @@ async function fetchSegment(url: string) {
   }
 }
 
-export const getProfiles = cache(async () => {
+export const getProfiles = async () => {
   let profiles = [];
   try {
     const profilesResponse = await fetchSegment(
@@ -63,4 +63,4 @@ export const getProfiles = cache(async () => {
     console.error(e);
   }
   return profiles.filter((p) => p.phone);
-});
+};
