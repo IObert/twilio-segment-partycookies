@@ -9,6 +9,7 @@ import {
 } from "@twilio-paste/core";
 import "intl-tel-input/build/css/intlTelInput.css";
 import intlTelInput from "intl-tel-input";
+import { useEffect } from "react";
 
 export default function LoginForm(props) {
   let iti = {
@@ -16,7 +17,7 @@ export default function LoginForm(props) {
       return "";
     },
   };
-  componentDidMount(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const input = document.querySelector("#tel");
       iti = intlTelInput(input, {
