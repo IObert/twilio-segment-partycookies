@@ -10,13 +10,13 @@ export function SubmitButton() {
       type="submit"
       aria-disabled={pending}
       name="send-messages"
-      className="flex-initial flex items-center place-content-between w-64  px-4 bg-indigo-500 text-white rounded-r-lg hover:bg-indigo-600  hover:outline-none hover:ring-2 hover:ring-indigo-600 "
+      className="flex-initial flex items-center place-content-between w-64  px-4 bg-violet-700 text-white rounded-r-lg hover:bg-violet-900 hover:outline-none hover:ring-2 hover:ring-violet-700"
     >
       {pending ? (
         <>
           <span className="">Sending ...</span>
           <svg
-            className="animate-spin  m-1 h-6 w-6 text-indigo-300"
+            className="animate-spin  m-1 h-6 w-6 text-violet-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

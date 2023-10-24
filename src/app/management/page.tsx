@@ -28,7 +28,7 @@ const ProfileTable: React.FC<{}> = async () => {
         <select
           id="contentSid"
           name="contentSid"
-          className="flex-1 py-2 px-4 border-x  text-gray-700 border-gray-300 rounded-l-lg  focus:outline-none focus:ring-2 focus:ring-indigo-500 "
+          className="flex-1 py-2 px-4 border-x  text-gray-900 border-gray-300 rounded-l-lg  focus:outline-none focus:ring-2 focus:ring-violet-700"
         >
           {contentTemplates?.map((contentTemplate: any) => (
             <option key={contentTemplate.sid} value={contentTemplate.sid}>
