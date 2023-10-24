@@ -14,8 +14,7 @@ export default function Product({ params }) {
   const product = COOKIES[params.product];
 
   function orderCookie() {
-    console.log("cookie ordered");
-
+    //When an order is completed
     track("Order Completed", {
       total: product.price,
       currency: "USD",

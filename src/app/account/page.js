@@ -20,6 +20,9 @@ export default function Account() {
         .then((res) => res.json())
         .then(({ faveCookie }) => {
           setUser({ ...userInStorage, faveCookie });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   }, []);
@@ -50,7 +53,9 @@ export default function Account() {
           </div>
         </center>
         <Box margin="auto" maxWidth="75%" textAlign="center">
-          <Product product={COOKIES[user.faveCookie] || {}} discount />
+          {user.faveCookie && (
+            <Product product={COOKIES[user.faveCookie] || {}} discount />
+          )}
         </Box>
       </Box>
       <Footer />

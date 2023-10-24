@@ -13,6 +13,6 @@ export async function POST(request) {
     );
 
     const { traits } = await res.json();
-    return Response.json({ faveCookie: traits.favourite_cookie });
+    return Response.json({ faveCookie: traits.favourite });
   } else return Response.json({});
 }
