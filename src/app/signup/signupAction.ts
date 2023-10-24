@@ -44,7 +44,6 @@ export async function signupAction(formData: FormData) {
     smsPumpingRisk: await lookupSmsPumpingRisk(phone),
   };
 
-  
   analytics.identify({
     userId: email,
     anonymousId: cookieStore.get("ajs_anonymous_id")?.value,

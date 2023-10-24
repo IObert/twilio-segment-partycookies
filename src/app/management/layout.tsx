@@ -1,17 +1,8 @@
 import "./styles.css";
 export default function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) {
-
-  
-    return (
-      <>
-       
-            {children}
-
-      </>
-    );
-  }
-  
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}
