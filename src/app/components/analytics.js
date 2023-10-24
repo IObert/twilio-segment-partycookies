@@ -14,3 +14,8 @@ export default function Analytics() {
 
   return null;
 }
+
+export function track(event, details) {
+  analytics.track(event, details);
+  console.log(event);
+}

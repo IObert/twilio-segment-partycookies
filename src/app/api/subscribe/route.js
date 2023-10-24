@@ -12,7 +12,6 @@ export async function POST(request) {
           subscriptions: [
             { key: email, type: "EMAIL", status: "SUBSCRIBED" },
             { key: phone, type: "SMS", status: "SUBSCRIBED" },
-            { key: phone, type: "WHATSAPP", status: "SUBSCRIBED" },
           ],
         },
       ),

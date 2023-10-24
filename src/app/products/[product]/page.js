@@ -6,7 +6,8 @@ import COOKIES from "../../components/cookies";
 import { Heading } from "@twilio-paste/core/heading";
 import { Theme } from "@twilio-paste/core/theme";
 import Image from "next/image";
-import Analytics from "../../components/analytics";
+// import Analytics from "../../components/analytics";
+import { analytics, track } from "../../components/analytics";
 
 export default function Product({ params }) {
   const [notifications, setNotifications] = useState([]);
@@ -15,7 +16,7 @@ export default function Product({ params }) {
   function orderCookie() {
     console.log("cookie ordered");
 
-    analytics.track("Order Completed", {
+    track("Order Completed", {
       total: product.price,
       currency: "USD",
       products: [product],
@@ -65,7 +66,7 @@ export default function Product({ params }) {
           <p>{product.description}</p>
         </center>
       </Box>
-      <Analytics />
+      <analytics />
     </Theme.Provider>
   );
 }
