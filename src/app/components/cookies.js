@@ -54,15 +54,15 @@ const COOKIES = {
       "Fortune cookies are mostly known as the type of cookie that comes with Chinese takeout. They’re made with flour, sugar, vanilla, and just a hint of sesame oil and are shaped into their classic crescent shape while the dough is still hot from the oven.",
     category: "cookie",
   },
-  macaroon: {
-    id: "macaroon",
+  macaron: {
+    id: "macaron",
     product_id: "006",
-    name: "Macaroon",
+    name: "Macaron",
     image: "/cookies/6.png",
     price: 30.0,
     stars: 5,
     description:
-      "Macaroons are coconut based with a dense, lumpy texture that’s sweet and chewy. Some macaroons are even dipped in chocolate for extra indulgence.",
+      "Macarons are a meringue-based sandwich cookie, resulting in a sweet flavor and delicate texture. They come in a wide variety of flavors and make an elegant addition to any gathering.",
     category: "cookie",
   },
   biscotti: {
