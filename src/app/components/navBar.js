@@ -5,14 +5,20 @@ import { Stack } from "@twilio-paste/core/stack";
 import { Box } from "@twilio-paste/core/box";
 import { Theme } from "@twilio-paste/core/theme";
 import Image from "next/image";
+import { getUserId } from "./analytics";
+import { useState, useEffect } from "react";
 
 export default function NavBar() {
-  let user = null;
+  const [user, setUser] = useState(null);
 
-  if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
-    const storage = localStorage.getItem("user");
-    user = JSON.parse(storage);
-  }
+  useEffect(() => {
+    const getUser = async () => {
+      const userId = await getUserId();
+      setUser(userId);
+    };
+    getUser();
+  }, []);
+
   let pathName = usePathname();
 
   return (
@@ -54,7 +60,7 @@ export default function NavBar() {
             <Link className={pathName == "/" ? "active" : ""} href="/">
               Home
             </Link>
-            {!user && (
+            {user == null && (
               <Link
                 className={pathName == "/rewards" ? "active" : ""}
                 href="/rewards"
@@ -62,7 +68,7 @@ export default function NavBar() {
                 Rewards
               </Link>
             )}
-            {user && (
+            {user !== null && (
               <Link
                 className={pathName == "/account" ? "active" : ""}
                 href="/account"

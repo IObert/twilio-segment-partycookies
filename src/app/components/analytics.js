@@ -19,3 +19,9 @@ export function track(event, details) {
 
   return null;
 }
+
+export async function getUserId() {
+  const user = await analytics.user();
+  const id = user.id();
+  return id;
+}

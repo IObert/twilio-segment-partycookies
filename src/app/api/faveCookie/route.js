@@ -1,12 +1,13 @@
 import fetch from "node-fetch";
+import { cookies } from "next/headers";
 
 export async function POST(request) {
-  const { email } = await request.json();
+  const cookieStore = cookies();
+  const email = cookieStore.get("ajs_user_id")?.value.replace("+", "%2B");
   if (email) {
-    const cleaned = email.replace("+", "%2B");
     try {
       const res = await fetch(
-        `https://profiles.segment.com/v1/spaces/spa_7ZjJrBMwQb6LxW9AXEgocm/collections/users/profiles/email:${cleaned}/traits`,
+        `https://profiles.segment.com/v1/spaces/spa_7ZjJrBMwQb6LxW9AXEgocm/collections/users/profiles/email:${email}/traits`,
         {
           headers: {
             Authorization: `Basic ${btoa(process.env.SEGMENT_TOKEN + ":")}`,
@@ -15,7 +16,7 @@ export async function POST(request) {
       );
       const { traits } = await res.json();
       return Response.json({
-        faveCookie: traits?.favourite_cookie_practice || null,
+        faveCookie: traits?.computed_trait_practice || null,
       });
     } catch (error) {
       return Response.json({});

@@ -4,27 +4,25 @@ import Product from "../components/product";
 import COOKIES from "../components/cookies";
 import { Box, Heading, Grid, Column } from "@twilio-paste/core";
 import { useEffect, useState } from "react";
+import { getUserId } from "../components/analytics";
 
 export default function Account() {
-  let storageUser = {};
-  const [user, setUser] = useState(storageUser);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
-      const userInStorage = JSON.parse(localStorage.getItem("user"));
+    const getUser = async () => {
+      const userId = await getUserId();
 
-      fetch("/api/faveCookie", {
-        method: "POST",
-        body: JSON.stringify({ email: userInStorage.email }),
-      })
-        .then((res) => res.json())
-        .then(({ faveCookie }) => {
-          setUser({ ...userInStorage, faveCookie });
-        })
-        .catch((error) => {
-          console.log(error);
+      if (userId !== null) {
+        const res = await fetch("/api/faveCookie", {
+          method: "POST",
         });
-    }
+        const { faveCookie } = await res.json();
+        console.log(userId, faveCookie);
+        setUser({ userId, faveCookie });
+      }
+    };
+    getUser();
   }, []);
 
   return (
