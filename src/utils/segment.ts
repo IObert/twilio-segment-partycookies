@@ -1,6 +1,5 @@
 import axios from "axios";
 
-export const revalidate = 10; // revalidate the data every 10 seconds
 
 async function fetchSegment(url: string) {
   try {

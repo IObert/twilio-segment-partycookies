@@ -2,6 +2,7 @@ import { signupAction } from "./signupAction";
 import { SignUpButtons } from "./signup-buttons";
 import Image from "next/image";
 
+
 const Page: React.FC = () => {
   return (
     <div className="flex flex-col text-center max-w-screen-xl h-screen">

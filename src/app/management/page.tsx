@@ -7,6 +7,8 @@ import { SubmitButton } from "./submit-button";
 
 import Image from "next/image";
 
+export const revalidate = 10;
+
 // Define the table column types
 type TableColumn = {
   id: string;
