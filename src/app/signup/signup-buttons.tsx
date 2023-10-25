@@ -15,7 +15,7 @@ export function SignUpButtons() {
           className="w-full h-16 py-2 px-4 bg-violet-500 border border-gray-900  text-white rounded-lg  hover:bg-violet-900"
         >
           <svg
-            className="animate-spin  m-1 h-6 w-6 text-violet-700"
+            className="animate-spin m-1 h-6 w-6 text-violet-700"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -43,7 +43,8 @@ export function SignUpButtons() {
             name="sms-button"
             className="w-1/2 py-2 px-4 bg-violet-700 border border-gray-900  text-white rounded-l-lg  hover:bg-violet-900"
           >
-            Subscribe
+            <p>Subscribe</p>
+            <span className="text-xs">via SMS</span>
           </button>
           <button
             type="submit"
@@ -51,7 +52,8 @@ export function SignUpButtons() {
             name="whatsapp-button"
             className="w-1/2 py-2 px-4 bg-violet-700  border border-gray-900  text-white rounded-r-lg hover:bg-violet-900"
           >
-            via WhatsApp
+            <p>Subscribe</p>
+            <span className="text-xs">via WhatsApp</span>
           </button>
         </>
       )}

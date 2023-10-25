@@ -13,7 +13,7 @@ const Page: React.FC = () => {
       </h2>
 
       <form
-        className="mb-10 flex flex-col justify-center max-w-lg mx-auto px-4"
+        className="mb-10 flex flex-col justify-center max-w-lg w-80 mx-auto"
         action={signupAction}
       >
         <label
