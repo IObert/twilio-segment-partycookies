@@ -14,7 +14,9 @@ export async function POST(request) {
         },
       );
       const { traits } = await res.json();
-      return Response.json({ faveCookie: traits?.favourite_cookie || null });
+      return Response.json({
+        faveCookie: traits?.favourite_cookie_practice || null,
+      });
     } catch (error) {
       return Response.json({});
     }

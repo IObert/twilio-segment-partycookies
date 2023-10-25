@@ -1,5 +1,4 @@
 "use client";
-// import * as React from "react";
 import { useState } from "react";
 import { Button, Alert, Column, Grid, Box } from "@twilio-paste/core";
 import COOKIES from "../../components/cookies";
@@ -20,6 +19,7 @@ export default function Product({ params }) {
       currency: "USD",
       products: [product],
     });
+
     setNotifications(
       notifications.concat(OrderNotification(product, notifications.length)),
     );
