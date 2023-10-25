@@ -39,7 +39,7 @@ const Page: React.FC = () => {
           id="phone"
           name="phone"
           className="w-full py-2 px-4 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-700"
-          placeholder="+49 151 12341234"
+          placeholder="+44 7700 123123"
           pattern="^(\+\d{1,3}\s?)?(\()?\d{1,4}(\))?\s?(-|\s)?\d{1,4}\s?(-|\s)?\d{1,9}$"
           required
         ></input>
