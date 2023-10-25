@@ -6,8 +6,8 @@ import COOKIES from "../../components/cookies";
 import { Heading } from "@twilio-paste/core/heading";
 import { Theme } from "@twilio-paste/core/theme";
 import Image from "next/image";
-// import Analytics from "../../components/analytics";
-import { analytics, track } from "../../components/analytics";
+import Analytics from "../../components/analytics";
+import { track } from "../../components/analytics";
 
 export default function Product({ params }) {
   const [notifications, setNotifications] = useState([]);
@@ -20,7 +20,6 @@ export default function Product({ params }) {
       currency: "USD",
       products: [product],
     });
-
     setNotifications(
       notifications.concat(OrderNotification(product, notifications.length)),
     );
@@ -65,7 +64,7 @@ export default function Product({ params }) {
           <p>{product.description}</p>
         </center>
       </Box>
-      <analytics />
+      <Analytics />
     </Theme.Provider>
   );
 }
