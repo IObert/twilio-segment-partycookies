@@ -30,7 +30,11 @@ export async function sendAction(formData: FormData) {
           2: `https://partycookies.store`,
         },
       };
-    });
+    })
+    .filter(
+      (message, index, self) =>
+        index === self.findIndex((t) => t.to === message.to),
+    );
 
   const res = await axios.post(
     "https://preview.messaging.twilio.com/v1/Messages.json",
