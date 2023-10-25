@@ -1,5 +1,4 @@
 import axios from "axios";
-import { cache } from "react";
 
 export const revalidate = 3600; // revalidate the data at most every hour
 
@@ -47,16 +46,7 @@ export const getProfiles = async () => {
             ...res.traits,
           };
         }
-        res = await fetchSegment(
-          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/events`,
-        );
-        const clickTrackEvent = res?.data?.findIndex(
-          (event: any) => event.event === "Click Tracked",
-        );
-        return {
-          clickedLink: clickTrackEvent > -1,
-          ...traits,
-        };
+        return traits;
       }),
     );
   } catch (e) {

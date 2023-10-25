@@ -21,7 +21,6 @@ export async function POST(request: NextRequest) {
   const analytics = new Analytics({
     writeKey: process.env.SEGMENT_SERVER_WRITE_KEY || "",
   });
-  // try {
   analytics.track({
     userId: data.to,
     event: "Click Tracked",
@@ -35,8 +34,5 @@ export async function POST(request: NextRequest) {
     },
   });
   await analytics.closeAndFlush(); // only for demo purposes, in production the delay is acceptable
-  //   } catch (error) {
-  //     debugger;
-  //   }
   return NextResponse.json({});
 }

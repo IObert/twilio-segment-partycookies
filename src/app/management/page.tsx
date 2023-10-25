@@ -58,7 +58,7 @@ const ProfileTable: React.FC<{}> = async () => {
               sms pumping risk
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">
-              clicked link
+              clicked links
             </th>
           </tr>
         </thead>
@@ -80,9 +80,7 @@ const ProfileTable: React.FC<{}> = async () => {
               <td className="">{maskPhone(profile.phone)}</td>
               <td className="">{profile.randomFlavor}</td>
               <td className="text-center">{profile.smsPumpingRisk}</td>
-              <td className="text-center">
-                {profile.clickedLink ? "Yes" : "No"}
-              </td>
+              <td className="text-center">{profile.clicked_links}</td>
             </tr>
           ))}
         </tbody>
