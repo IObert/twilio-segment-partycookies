@@ -56,7 +56,8 @@ export async function signupAction(formData: FormData) {
     to: phone,
     shortenUrls: true,
     from: process.env.TWILIO_SENDER || "",
-    body: `Hi ${name.firstName},\nwe hope you enjoy this demo. Don't forget to use these promo codes ${process.env.PROMO} when you create a new account https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`,
+    body: `Thanks for signing up for our dough-lightful news. For the sake of this demo, we assigned you a random name (${name.firstName}). 
+Don't forget to use these promo codes ${process.env.PROMO} when you create a new account https://www.twilio.com/try-twilio?utm_campaign=EVENT_SIGNAL_2023_OCT_13_SIGNAL_London_EMEA&utm_source=twilio&utm_medium=conference&utm_content=signallondon2023&utm_term=devevangel`
   });
 
   redirect(`.`); // Navigate to home page
