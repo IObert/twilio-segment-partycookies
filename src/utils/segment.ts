@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 async function fetchSegment(url: string) {
   try {
     const res = await axios.get(url, {

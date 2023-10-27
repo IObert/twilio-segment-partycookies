@@ -9,6 +9,7 @@ Ensure that you have the following prerequisites before proceeding:
 - **Node.js and npm**: Download and install them from [here](https://nodejs.org/en/download/).
 
 - **Twilio Account**: Sign up for free at [Twilio](https://www.twilio.com/). Once an account is created, gather your account SID, auth token, API key, API secret, and follow these steps:
+
   - Generate an [API key](https://support.twilio.com/hc/en-us/articles/9318455807771-API-Keys-and-How-to-Change-Them).
   - Purchase a number and set it up for [WhatsApp communication](https://www.twilio.com/docs/whatsapp/tutorial/connect-number-business-profile).
   - Craft a [Messaging Service](https://support.twilio.com/hc/en-us/articles/223181308-Getting-started-with-Messaging-Services) and attach the number, as well as the WhatsApp sender to it.
