@@ -8,30 +8,30 @@ const Page: React.FC = () => {
       <h2 className="text-xl mb-4 mx-2 text-gray-700">
         Please message TEA or COFFEE to the following number
       </h2>
-      <h1 className="text-3xl mb-4 mx-2 mt-10 text-gray-700">+447361591811</h1>
+      <h1 className="text-3xl mx-2 mb-10 text-gray-700">+447361591811</h1>
 
-      <div className="mb-10 flex flex-col justify-center max-w-lg mx-auto px-4">
-        <div className="inline-flex mt-4 space-x-20" role="group">
+      <div className="mb-10 flex flex-wrap justify-center px-4">
+        <div className="m-4 " role="group">
           <Link
             href="sms:+447361591811?&body=TEA"
-            className="p-2 flex items-center w-60 text-center mx-auto bg-violet-700  border border-gray-900  text-white rounded-lg hover:bg-violet-900"
+            className="p-2 mb-4 flex items-center w-60 text-center mx-auto bg-violet-700  border border-gray-900  text-white rounded-lg hover:bg-violet-900"
           >
             <p className="text-center w-full">Send SMS vote for Tea</p>
           </Link>
 
           <Link
-            href="sms:+447361591811?&body=COFFEE"
-            className="p-2 flex items-center w-60 text-center mx-auto pl-4 bg-violet-700  border border-gray-900  text-white rounded-lg hover:bg-violet-900"
-          >
-            <p className="text-center w-full">Send SMS vote for Coffee</p>
-          </Link>
-        </div>
-        <div className="inline-flex mt-4 space-x-20" role="group">
-          <Link
             href="https://wa.me/+447361591811?text=TEA"
             className="p-2 flex items-center w-60 text-center mx-auto pl-4 bg-green-700  border border-gray-900  text-white rounded-lg hover:bg-green-900"
           >
             <p className="text-center w-full">Send Whatsapp vote for Tea</p>
+          </Link>
+        </div>
+        <div className="m-4" role="group">
+          <Link
+            href="sms:+447361591811?&body=COFFEE"
+            className="p-2 mb-4 flex items-center w-60 text-center mx-auto pl-4 bg-violet-700  border border-gray-900  text-white rounded-lg hover:bg-violet-900"
+          >
+            <p className="text-center w-full">Send SMS vote for Coffee</p>
           </Link>
 
           <Link
