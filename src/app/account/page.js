@@ -22,8 +22,6 @@ export default function Account() {
       }
     };
     getUser();
-
-    analytics.identify;
   }, []);
 
   return (
