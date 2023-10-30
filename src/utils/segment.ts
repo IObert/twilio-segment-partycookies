@@ -50,5 +50,5 @@ export const getProfiles = async () => {
   } catch (e) {
     console.error(e);
   }
-  return profiles.filter((p) => p.phone);
+  return profiles.filter((p) => p.phone && p.firstName);
 };
