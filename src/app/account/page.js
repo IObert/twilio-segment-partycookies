@@ -4,7 +4,7 @@ import Product from "../components/product";
 import COOKIES from "../components/cookies";
 import { Box, Heading, Grid, Column } from "@twilio-paste/core";
 import { useEffect, useState } from "react";
-import { getUserId } from "../components/analytics";
+import { getUserId, identify } from "../components/analytics";
 
 export default function Account() {
   const [user, setUser] = useState({});
@@ -12,17 +12,18 @@ export default function Account() {
   useEffect(() => {
     const getUser = async () => {
       const userId = await getUserId();
-
       if (userId !== null) {
         const res = await fetch("/api/faveCookie", {
           method: "POST",
         });
         const { faveCookie } = await res.json();
-        console.log(userId, faveCookie);
+        identify(userId, { segmentDemoParticipation: true });
         setUser({ userId, faveCookie });
       }
     };
     getUser();
+
+    analytics.identify;
   }, []);
 
   return (
