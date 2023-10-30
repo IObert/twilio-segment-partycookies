@@ -6,7 +6,7 @@ export default function onLogin({ email, phone }) {
   const traits = {
     email,
     phone,
-    username: faker.internet.userName(name),
+    username: faker.internet.userName(),
     avatar: faker.image.avatar(),
     birthdate: faker.date.birthdate(),
     registeredAt: faker.date.past(),
