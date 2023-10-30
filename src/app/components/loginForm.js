@@ -5,7 +5,6 @@ import {
   Label,
   Input,
   Button,
-  HelpText,
 } from "@twilio-paste/core";
 import "intl-tel-input/build/css/intlTelInput.css";
 import intlTelInput from "intl-tel-input";
@@ -25,6 +24,7 @@ export default function LoginForm(props) {
         utilsScript:
           "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
         initialCountry: "auto",
+        dropdownContainer: document.querySelector("#dropdownContainer"),
         geoIpLookup: function (callback) {
           fetch("https://ipapi.co/json")
             .then(function (res) {
@@ -57,6 +57,7 @@ export default function LoginForm(props) {
         <FormControl>
           <Label htmlFor="tel">Telephone Number</Label>
           <Input name="tel" id="tel" type="tel" autocomplete="on" />
+          <div id="dropdownContainer"></div>
         </FormControl>
         <FormActions>
           <Button type="submit" variant="primary" fullWidth>
