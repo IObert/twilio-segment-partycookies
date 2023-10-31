@@ -17,18 +17,25 @@ async function fetchSegment(url: string) {
 }
 
 export const getProfiles = async () => {
-  let profiles = [];
+  let profiles = [],
+    profileIds = [];
   try {
-    const profilesResponse = await fetchSegment(
+    let profilesResponse = await fetchSegment(
       `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles`,
     );
 
     if (!profilesResponse.data) {
       return [];
     }
+    profileIds = profilesResponse.data;
+
+    while (profilesResponse?.cursor?.has_more) {
+      profilesResponse = await fetchSegment(profilesResponse.cursor.url);
+      profileIds = [...profileIds, ...profilesResponse.data];
+    }
 
     profiles = await Promise.all(
-      profilesResponse.data.map(async (profile: any) => {
+      profileIds.map(async (profile: any) => {
         let traits = {};
         let res = await fetchSegment(
           `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/traits`,
