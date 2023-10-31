@@ -1,7 +1,12 @@
 import axios from "axios";
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fetchSegment(url: string) {
   try {
+    await sleep(Math.random() * 2000);
     const res = await axios.get(url, {
       headers: {
         Authorization: `Basic ${btoa(process.env.SEGMENT_TOKEN + ":")}`,
