@@ -26,7 +26,7 @@ export const getProfiles = async () => {
     profileIds = [];
   try {
     let profilesResponse = await fetchSegment(
-      `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles`,
+      `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles?limit=200`,
     );
 
     if (!profilesResponse.data) {
@@ -43,7 +43,7 @@ export const getProfiles = async () => {
       profileIds.map(async (profile: any) => {
         let traits = {};
         let res = await fetchSegment(
-          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/traits`,
+          `https://profiles.segment.com/v1/spaces/${process.env.SEGMENT_SPACE_ID}/collections/users/profiles/${profile.segment_id}/traits?limit=200`,
         );
         traits = {
           ...traits,
@@ -62,5 +62,5 @@ export const getProfiles = async () => {
   } catch (e) {
     console.error(e);
   }
-  return profiles.filter((p) => p.phone && p.firstName);
+  return profiles.filter((p) => p.phone && p.firstName && p.avatar);
 };
