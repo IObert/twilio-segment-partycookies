@@ -2,8 +2,7 @@ import { analytics } from "../../utils/analytics";
 import { faker } from "@faker-js/faker";
 //Only runs on successful login
 
-export default function onLogin({ email, phone }) {
-
+export default function onLogin({ email }) {
   const name = {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
@@ -15,7 +14,6 @@ export default function onLogin({ email, phone }) {
     birthdate: faker.date.birthdate(),
     registeredAt: faker.date.past(),
     email,
-    phone,
     signedUpForRewards: true,
   };
 

@@ -25,7 +25,6 @@ export default function LoginModal() {
     event.preventDefault();
     const user = {
       email: event.target.email.value,
-      phone: event.target.tel.value,
     };
     setUser(user);
     onLogin(user);
