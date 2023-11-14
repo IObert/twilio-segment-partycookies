@@ -10,7 +10,13 @@ import {
 export default function LoginForm(props) {
   return (
     <>
-      <Form method="POST" id="login">
+      <Form
+        onSubmit={async (event) => {
+          props.onSubmitHandler(event);
+        }}
+        method="POST"
+        id="login"
+      >
         <FormControl>
           <Label htmlFor="email">Email</Label>
           <Input name="email" id="email" type="text" />

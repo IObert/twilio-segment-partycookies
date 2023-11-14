@@ -27,7 +27,7 @@ export default function LoginModal() {
       email: event.target.email.value,
     };
     setUser(user);
-    // onLogin(user);
+    onLogin(user);
 
     router.push("/");
   };
@@ -66,5 +66,4 @@ function setUser(data) {
   })
     .then((res) => res.json())
     .then((data) => console.log(data));
-  localStorage.setItem("user", JSON.stringify(data));
 }
