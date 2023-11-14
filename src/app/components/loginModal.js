@@ -27,7 +27,7 @@ export default function LoginModal() {
       email: event.target.email.value,
     };
     setUser(user);
-    onLogin(user);
+    // onLogin(user);
 
     router.push("/");
   };
@@ -62,7 +62,7 @@ export default function LoginModal() {
 function setUser(data) {
   fetch("/api/subscribe", {
     method: "POST",
-    body: JSON.stringify({ email: data.email, phone: data.phone }),
+    body: JSON.stringify({ email: data.email }),
   })
     .then((res) => res.json())
     .then((data) => console.log(data));
