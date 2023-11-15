@@ -1,4 +1,4 @@
-import { analytics } from "../../utils/analytics";
+import { analytics } from "./analytics";
 import { faker } from "@faker-js/faker";
 //Only runs on successful login
 
@@ -17,7 +17,7 @@ export default function onLogin({ email }) {
     signedUpForRewards: true,
   };
 
-  analytics.identify(email, traits);
+  identify(email, traits);
 
   return;
 }
