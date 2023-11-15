@@ -1,4 +1,4 @@
-import { analytics } from "./analytics";
+import { identify } from "./analytics";
 import { faker } from "@faker-js/faker";
 //Only runs on successful login
 
