@@ -7,7 +7,7 @@ export async function POST(request) {
   if (email) {
     try {
       const res = await fetch(
-        `https://profiles.segment.com/v1/spaces/spa_7ZjJrBMwQb6LxW9AXEgocm/collections/users/profiles/email:${email}/traits`,
+        `https://profiles.segment.com/v1/spaces/spa_7ZjJrBMwQb6LxW9AXEgocm/collections/users/profiles/email:${email}/traits?limit=200`,
         {
           headers: {
             Authorization: `Basic ${btoa(process.env.SEGMENT_TOKEN + ":")}`,
@@ -16,7 +16,7 @@ export async function POST(request) {
       );
       const { traits } = await res.json();
       return Response.json({
-        faveCookie: traits?.favourite_backup || null,
+        faveCookie: traits?.test || null,
       });
     } catch (error) {
       return Response.json({});
