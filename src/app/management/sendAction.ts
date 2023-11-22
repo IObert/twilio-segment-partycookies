@@ -37,7 +37,7 @@ export async function sendAction(formData: FormData) {
     );
 
   const res = await axios.post(
-    "https://preview.messaging.twilio.com/v1/Messages.json",
+    "https://preview.messaging.twilio.com/v1/Messages",
     {
       messages,
       contentSid: contentSid,
