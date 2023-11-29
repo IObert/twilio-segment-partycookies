@@ -18,6 +18,7 @@ Ensure that you have the following prerequisites before proceeding:
   - Set up two [sources - JavaScript Website & Node.js Server](https://segment.com/docs/connections/sources/) within your workspace.
   - Build a [space for profiles](https://segment.com/docs/unify/quickstart/) and tie it to the sources you created.
   - Generate an [API access token](https://segment.com/docs/unify/profile-api/) for the space.
+  - Set up a computed trait `clicked_links` to count the occures of "Click Tracked"
 
 ## Project Configuration
 
