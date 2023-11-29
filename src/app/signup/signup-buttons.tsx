@@ -40,8 +40,17 @@ export function SignUpButtons() {
           <button
             type="submit"
             aria-disabled={pending}
+            name="sms-button"
+            className="w-1/2 py-2 px-4 bg-violet-700 border border-gray-900  text-white rounded-l-lg  hover:bg-violet-900"
+          >
+            <p>Subscribe</p>
+            <span className="text-xs">via SMS</span>
+          </button>
+          <button
+            type="submit"
+            aria-disabled={pending}
             name="whatsapp-button"
-            className="w-full py-2 px-4 bg-violet-700  border border-gray-900  text-white rounded-lg hover:bg-violet-900"
+            className="w-1/2 py-2 px-4 bg-violet-700  border border-gray-900  text-white rounded-r-lg hover:bg-violet-900"
           >
             <p>Subscribe</p>
             <span className="text-xs">via WhatsApp</span>
